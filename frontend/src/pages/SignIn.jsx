@@ -43,7 +43,7 @@ function SignIn() {
 
             {/* email */}
 
-            <div>
+            <div className='mb-4'>
                 <label htmlFor='email' className='block text-gray-700 font-medium mb-1'>Email</label>
                 <input type="email" className='w-full border rounded-lg px-3 py-2 focus:outline-none ' placeholder='Enter your Email' style={{
                     border: `1px solid ${borderColor}`
@@ -54,7 +54,7 @@ function SignIn() {
            
             {/* password */}
 
-            <div>
+            <div className='mb-4'>
                 <label htmlFor='password' className='block text-gray-700 font-medium mb-1'>Password</label>
                 <div className='relative'>
                     <input type={`${showPassword?"text":"password"}`} className='w-full border rounded-lg px-3 py-2 focus:outline-none ' placeholder='Enter your Password' style={{

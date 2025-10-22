@@ -44,7 +44,7 @@ function SignUp() {
             </p>
             {/* fullName */}
 
-            <div>
+            <div className='mb-4'>
                 <label htmlFor='fullName' className='block text-gray-700 font-medium mb-1'>Full Name</label>
                 <input type="text" className='w-full border rounded-lg px-3 py-2 focus:outline-none ' placeholder='Enter your fullName' style={{
                     border: `1px solid ${borderColor}`}}
@@ -53,7 +53,7 @@ function SignUp() {
 
             {/* email */}
 
-            <div>
+            <div className='mb-4'>
                 <label htmlFor='email' className='block text-gray-700 font-medium mb-1'>Email</label>
                 <input type="email" className='w-full border rounded-lg px-3 py-2 focus:outline-none ' placeholder='Enter your Email' style={{
                     border: `1px solid ${borderColor}`
@@ -73,7 +73,7 @@ function SignUp() {
 
             {/* password */}
 
-            <div>
+            <div className='mb-4'>
                 <label htmlFor='password' className='block text-gray-700 font-medium mb-1'>Password</label>
                 <div className='relative'>
                     <input type={`${showPassword?"text":"password"}`} className='w-full border rounded-lg px-3 py-2 focus:outline-none ' placeholder='Enter your Password' style={{
@@ -86,7 +86,7 @@ function SignUp() {
 
              {/* role */}
 
-            <div>
+            <div className='mb-4'>
                 <label htmlFor='role' className='block text-gray-700 font-medium mb-1'>Role</label>
                 <div className='flex gap-2'>
                    {['user','owner', 'deliveryBoy'].map((r)=>(
