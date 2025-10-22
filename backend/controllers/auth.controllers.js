@@ -5,7 +5,7 @@ import  genToken  from "../utils/token.js";
 
 export const signUp = async(req, res) => {
     try {
-        const {fullName,email,password,mobile,rple} = req.body;
+        const {fullName,email,password,mobile,role} = req.body;
         let user = await User.findOne({email})
         if(user){
             return res.status(400).json({message:"User already exists"})
@@ -37,6 +37,7 @@ export const signUp = async(req, res) => {
         return res.status(201).json(user);
 
     } catch (error) {
+        console.log("Error during signup:", error);
         return res.status(500).json({message:`SignUp failed: ${error.message}`});
     }
 }
@@ -64,6 +65,7 @@ export const signIn = async(req, res)=>{
         })
         return res.status(200).json(user);
     } catch (error) {
+        console.log("Error during signin:", error);
         return res.status(500).json({message:`SignIn failed: ${error.message}`});
     }
 }
