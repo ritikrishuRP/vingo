@@ -8,8 +8,9 @@ import { useNavigate } from 'react-router-dom';
 import { serverUrl } from '../App';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../firebase';
-
 import { ClipLoader } from "react-spinners";
+import { useDispatch } from 'react-redux';
+import { setUserData } from '../redux/userSlice';
 
 
  
@@ -28,13 +29,14 @@ function SignUp() {
     const [password,setPassword]=useState("");
     const [err, setErr]=useState("");
     const [loading,setLoading]=useState(false);
-
+    const dispatch=useDispatch();
     const handleSignUp = async()=>{
         setLoading(true);
         try {
             const result = await axios.post(`${serverUrl}/api/auth/signup`,{
                 fullName,email,mobile,password,role
             },{ withCredentials:true });
+            dispatch(setUserData(result.data));
             console.log(result.data);
             setErr("");
             setLoading(false);
@@ -58,6 +60,7 @@ function SignUp() {
                 fullName:result.user.displayName,
                 email:result.user.email,
                 mobile,role},{ withCredentials:true })
+                dispatch(setUserData(data));
         } catch (error) {
             return console.log("Error during Google Auth:",error);
         }
